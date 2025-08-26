@@ -7,14 +7,18 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from tensorflow.keras.models import load_model
 
-# --- Page Background ---
+# --- Page Background and Author Section ---
 st.markdown("""
 <style>
+    /* Page background */
     .stApp {
-        background-color: #eef6fa;  /* Page background */
+        background-color: #eef6fa;
+        color: #004080;  /* default text color for readability */
     }
+
+    /* Author section styling */
     .author {
-        background-color: #cce0ff; /* Author section background */
+        background-color: #cce0ff;  /* Author section background */
         color: #004080;             /* Text color */
         font-style: italic;
         font-size: 16px;
