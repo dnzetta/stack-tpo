@@ -75,23 +75,51 @@ div[data-baseweb="input"] input::placeholder {
 
 st.markdown("""
 <style>
-/* All buttons inside Streamlit (including st.button) */
+/* Primary buttons created by st.button */
 div.stButton > button {
-    background-color: #4da6ff !important;  /* Light blue background */
-    color: #ffffff !important;             /* White text */
+    background-color: #ffffff !important;  /* White background */
+    color: #000000 !important;             /* Black text */
     font-weight: bold !important;
     border-radius: 8px !important;
+    border: 1px solid #000000 !important;  /* Black border for contrast */
     padding: 8px 16px !important;
 }
 
 /* Hover/focus state */
 div.stButton > button:hover,
 div.stButton > button:focus {
-    background-color: #80c1ff !important;  /* Lighter blue on hover/focus */
-    color: #ffffff !important;
+    background-color: #f0f0f0 !important;  /* Slight gray on hover */
+    color: #000000 !important;
 }
 </style>
 """, unsafe_allow_html=True)
+
+
+st.markdown("""
+<style>
+/* All buttons (Predict, Download, Browse files) */
+div.stButton > button,
+div[data-testid="stFileUploader"] button {
+    background-color: #ffffff !important;  /* White background */
+    color: #000000 !important;             /* Black text */
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    border: 1px solid #000000 !important;  /* Optional: black border for contrast */
+    padding: 8px 16px !important;
+}
+
+/* Hover/focus state */
+div.stButton > button:hover,
+div.stButton > button:focus,
+div[data-testid="stFileUploader"] button:hover,
+div[data-testid="stFileUploader"] button:focus {
+    background-color: #f0f0f0 !important;  /* Slight gray on hover */
+    color: #000000 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
