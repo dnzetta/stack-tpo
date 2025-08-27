@@ -85,6 +85,25 @@ div[data-baseweb="input"] input::placeholder {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+/* Primary buttons (e.g., Predict) */
+button[kind="primary"] {
+    background-color: #4da6ff !important;  /* Light blue background */
+    color: #ffffff !important;             /* White text */
+    font-weight: bold;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+}
+
+/* Primary button hover effect */
+button[kind="primary"]:hover {
+    background-color: #80c1ff !important;  /* Lighter blue on hover */
+    color: #ffffff !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
