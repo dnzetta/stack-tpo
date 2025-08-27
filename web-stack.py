@@ -32,19 +32,27 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Tab label text (active and inactive) */
+/* Tab labels (all states) */
 [data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
-    color: #002244 !important;  /* Dark navy text */
+    color: #000000 !important;   /* Black text for readability */
     font-weight: 600;
     font-size: 14px;
 }
 
-/* Tab content text */
-[data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
-    color: #002244 !important;  /* Force readable text inside */
+/* Active tab */
+[data-testid="stTabs"] div[role="tab"][aria-selected="true"] {
+    background-color: #ffffff !important; /* White background */
+    color: #000000 !important;            /* Force black text for active tab */
+}
+
+/* Inactive tab */
+[data-testid="stTabs"] div[role="tab"][aria-selected="false"] {
+    background-color: #ffffff !important; /* White background */
+    color: #000000 !important;            /* Force black text for inactive tabs */
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
