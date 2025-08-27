@@ -13,33 +13,46 @@ st.markdown("""
     /* Page background */
     .stApp {
         background-color: #eef6fa;
-        color: #004080;  /* default text color for readability */
+        color: #002244; /* Darker but softer text */
     }
 
-    /* Tab labels */
+    /* Tab labels - make text bold and softer blue */
     [data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
-        color: #003366 !important; /* Darker blue for tab labels */
-        font-weight: 600;          /* Make them bold */
+        color: #00509e !important; /* Softer blue */
+        font-weight: 600;
     }
-    
-    /* Tab content */
+
+    /* Tab content text - darker navy for readability */
     [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
-        color: #002244 !important; /* Even darker text for readability */
+        color: #001f33 !important;
+    }
+
+    /* Buttons - light blue background with dark text */
+    button[kind="primary"] {
+        background-color: #4da6ff !important;  /* Lighter blue */
+        color: #ffffff !important;             /* White text */
+        border-radius: 10px !important;        /* Rounded edges */
+        font-weight: bold;
+    }
+    button[kind="primary"]:hover {
+        background-color: #80c1ff !important;  /* Lighter on hover */
+        color: #ffffff !important;
     }
 
     /* Author section styling */
     .author {
-        background-color: #cce0ff;  /* Author section background */
-        color: #004080;             /* Text color */
+        background-color: #cce0ff;
+        color: #003366;
         font-style: italic;
         font-size: 16px;
         text-align: center;
         padding: 15px;
-        border-radius: 10px;        /* Rounded corners */
+        border-radius: 10px;
         margin-top: 30px;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
