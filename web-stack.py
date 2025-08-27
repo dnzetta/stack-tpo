@@ -58,6 +58,33 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+/* Style text input box */
+div[data-baseweb="input"] input {
+    background-color: #ffffff !important; /* White background */
+    color: #002244 !important;            /* Dark navy text */
+    border: 1px solid #4da6ff !important; /* Light blue border */
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+}
+
+/* Placeholder text color */
+div[data-baseweb="input"] input::placeholder {
+    color: #666666 !important; /* Gray placeholder for readability */
+}
+
+/* File uploader box */
+[data-testid="stFileUploader"] section {
+    background-color: #ffffff !important;
+    color: #002244 !important;
+    border: 1px dashed #4da6ff !important;
+    border-radius: 8px !important;
+    padding: 10px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
