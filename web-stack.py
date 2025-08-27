@@ -139,7 +139,8 @@ st.markdown("""
 ### Prediction Server
 Predict **thyroid peroxidase (TPO) toxicity** from SMILES using **MACCS fingerprints** and **stacked models**.\n
 **Baselines included:** CNN, BiLSTM, and attention models.\n
-**Meta model:** Attention-based stacked model.
+**Meta model:** Attention-based stacked model.\n
+**Model Accuracy:** 87%
 """)
 
 # --- Tabs for SMILES vs CSV input ---
@@ -276,5 +277,13 @@ Darlene Nabila Zetta<sup>1</sup> and Tarapong Srisongkram<sup>2*</sup>
 
 <sup>1</sup>*Graduate School in the Program of Pharmaceutical Sciences, Faculty of Pharmaceutical Sciences, Khon Kaen University, Khon Kaen 40002, Thailand*  
 <sup>2</sup>*Division of Pharmaceutical Chemistry, Faculty of Pharmaceutical Sciences, Khon Kaen University, Khon Kaen 40002, Thailand*
+</div>
+""", unsafe_allow_html=True)
+
+
+st.markdown("""
+<div class="author">
+Main Reference:  \n
+Zetta, D. N.; Srisongkram, T. Stacking Ensemble Neural Network for Chemical Safety Assessment: A Case Study of Thyroid Peroxidase and Natural Product Screening. ACS Omega 2025, 10, 30450– 30466, [DOI](https://doi.org/10.1021/acsomega.5c02188)
 </div>
 """, unsafe_allow_html=True)
