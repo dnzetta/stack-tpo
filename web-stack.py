@@ -206,9 +206,9 @@ with tab1:
                 # Explanation just below heatmap
                 st.markdown(
                     "**Heatmap Interpretation:**  \n"
-                    "0–0.5 → Non-toxic  \n"
-                    "0.5 → Uncertain  \n"
-                    "0.5–1.0 → Toxic"
+                    "\\< 0.5 → Non-toxic  \n"
+                    "= 0.5 → Uncertain  \n"
+                    "\\> 0.5 → Toxic"
                 )
 
 
@@ -260,9 +260,9 @@ with tab2:
             st.write("**Prediction Heatmap:**")
             st.markdown(
                 "**Heatmap Interpretation:**  \n"
-                "0–0.5 → Non-toxic  \n"
-                "0.5 → Uncertain  \n"
-                "0.5–1.0 → Toxic"
+                "\\< 0.5 → Non-toxic  \n"
+                "= 0.5 → Uncertain  \n"
+                "\\> 0.5 → Toxic"
             )
 
 # --- Spacer before author section ---
