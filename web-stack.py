@@ -32,25 +32,28 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Tab label text (all states) */
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] span {
+/* Force tab label text color for all inner elements */
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] *,
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] span,
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
     color: #002244 !important;  /* Dark navy text */
     font-weight: 600;
     font-size: 14px;
 }
 
-/* Tab label background */
+/* Tab label background - active & inactive */
 [data-testid="stTabs"] div[role="tab"][aria-selected="true"],
 [data-testid="stTabs"] div[role="tab"][aria-selected="false"] {
     background-color: #ffffff !important; /* White background */
 }
-
+  
 /* Tab content text */
 [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
     color: #002244 !important;  /* Force readable text inside */
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 st.markdown("""
@@ -125,8 +128,6 @@ div[data-testid="stFileUploader"] button:focus {
 }
 </style>
 """, unsafe_allow_html=True)
-
-
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
