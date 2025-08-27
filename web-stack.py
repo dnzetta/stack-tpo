@@ -32,24 +32,21 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Tab label button text */
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button {
-    color: #002244 !important;       /* Dark navy text */
+/* Tab label buttons - all states */
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button,
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:focus,
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:hover,
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:active {
+    color: #002244 !important;           /* Dark navy text */
+    background-color: #ffffff !important; /* White background */
     font-weight: 600;
     font-size: 14px;
-    background-color: #ffffff !important;  /* White background */
+    opacity: 1 !important;               /* Prevent fading */
 }
-
-/* Active and inactive tabs */
-[data-testid="stTabs"] div[role="tab"][aria-selected="true"] button,
-[data-testid="stTabs"] div[role="tab"][aria-selected="false"] button {
-    background-color: #ffffff !important;  /* Keep flat white background */
-    color: #002244 !important;             /* Ensure text stays readable */
-}
-
+  
 /* Tab content text */
 [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
-    color: #002244 !important;  /* Keep content readable */
+    color: #002244 !important;           /* Force readable text inside */
 }
 </style>
 """, unsafe_allow_html=True)
