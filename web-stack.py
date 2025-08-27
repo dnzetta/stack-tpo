@@ -7,125 +7,98 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from tensorflow.keras.models import load_model
 
-# --- Page Background and Author Section ---
+# --- Unified Styling ---
 st.markdown("""
 <style>
-    /* Page background */
-    .stApp {
-        background-color: #eef6fa;
-        color: #002244; /* Darker but softer text */
-    }
+/* ===== PAGE BACKGROUND & GLOBAL TEXT ===== */
+.stApp {
+    background-color: #eef6fa !important;
+    color: #002244 !important;
+    font-family: 'sans-serif' !important;
+}
 
-    /* Author section styling */
-    .author {
-        background-color: #cce0ff;
-        color: #003366;
-        font-style: italic;
-        font-size: 16px;
-        text-align: center;
-        padding: 15px;
-        border-radius: 10px;
-        margin-top: 30px;
-    }
-</style>
-""", unsafe_allow_html=True)
+/* ===== AUTHOR SECTION ===== */
+.author {
+    background-color: #cce0ff !important;
+    color: #003366 !important;
+    font-style: italic;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
 
-st.markdown("""
-<style>
-/* Tab label buttons - force readable text and remove opacity/hover effect */
+/* ===== TABS ===== */
 [data-testid="stTabs"] div[role="tablist"] div[role="tab"] button,
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:focus,
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:hover,
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:active {
-    color: #002244 !important;           /* Dark navy text */
-    background-color: #ffffff !important; /* White background */
-    font-weight: 600;
-    font-size: 14px;
-    opacity: 1 !important;               /* Remove fade effect */
-    box-shadow: none !important;         /* Remove focus/hover shadow */
-    border: none !important;             /* Remove border if present */
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button span,
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button div {
+    color: #002244 !important;
+    background-color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    opacity: 1 !important;
+    border: none !important;
+    box-shadow: none !important;
 }
-  
-/* Tab content text */
+
 [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
-    color: #002244 !important;           /* Force readable text inside */
+    color: #002244 !important;
 }
-</style>
-""", unsafe_allow_html=True)
 
-
-st.markdown("""
-<style>
-/* Style text input box */
+/* ===== INPUT BOXES ===== */
 div[data-baseweb="input"] input {
-    background-color: #ffffff !important; /* White background */
-    color: #002244 !important;            /* Dark navy text */
-    border: 1px solid #4da6ff !important; /* Light blue border */
+    background-color: #ffffff !important;
+    color: #002244 !important;
+    border: 1px solid #4da6ff !important;
     border-radius: 8px !important;
     padding: 6px 10px !important;
 }
-
-/* Placeholder text color */
 div[data-baseweb="input"] input::placeholder {
-    color: #666666 !important; /* Gray placeholder for readability */
+    color: #666666 !important;
 }
 
-/* File uploader box */
+/* ===== FILE UPLOADER ===== */
 [data-testid="stFileUploader"] section {
     background-color: #ffffff !important;
     color: #002244 !important;
     border: 1px dashed #4da6ff !important;
     border-radius: 8px !important;
-    padding: 10px;
+    padding: 10px !important;
 }
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<style>
-/* Primary buttons created by st.button */
-div.stButton > button {
-    background-color: #ffffff !important;  /* White background */
-    color: #000000 !important;             /* Black text */
+[data-testid="stFileUploader"] button {
+    background-color: #ffffff !important;
+    color: #000000 !important;
     font-weight: bold !important;
     border-radius: 8px !important;
-    border: 1px solid #000000 !important;  /* Black border for contrast */
+    border: 1px solid #000000 !important;
     padding: 8px 16px !important;
 }
+[data-testid="stFileUploader"] button:hover,
+[data-testid="stFileUploader"] button:focus {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+}
 
-/* Hover/focus state */
+/* ===== ALL BUTTONS ===== */
+div.stButton > button,
+div.stButton > button span,
+div.stButton > button div {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    border: 1px solid #000000 !important;
+    padding: 8px 16px !important;
+}
 div.stButton > button:hover,
 div.stButton > button:focus {
-    background-color: #f0f0f0 !important;  /* Slight gray on hover */
+    background-color: #f0f0f0 !important;
     color: #000000 !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-
-st.markdown("""
-<style>
-/* All buttons (Predict, Download, Browse files) */
-div.stButton > button,
-div[data-testid="stFileUploader"] button {
-    background-color: #ffffff !important;  /* White background */
-    color: #000000 !important;             /* Black text */
-    font-weight: bold !important;
-    border-radius: 8px !important;
-    border: 1px solid #000000 !important;  /* Optional: black border for contrast */
-    padding: 8px 16px !important;
-}
-
-/* Hover/focus state */
-div.stButton > button:hover,
-div.stButton > button:focus,
-div[data-testid="stFileUploader"] button:hover,
-div[data-testid="stFileUploader"] button:focus {
-    background-color: #f0f0f0 !important;  /* Slight gray on hover */
-    color: #000000 !important;
-}
-</style>
-""", unsafe_allow_html=True)
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
