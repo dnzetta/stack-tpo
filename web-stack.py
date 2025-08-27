@@ -81,21 +81,23 @@ div[data-baseweb="input"] input::placeholder {
 }
 
 /* ===== ALL BUTTONS ===== */
-div.stButton > button,
-div.stButton > button span,
-div.stButton > button div {
+div.stButton > button {
     background-color: #ffffff !important;
     color: #000000 !important;
     font-weight: bold !important;
     border-radius: 8px !important;
     border: 1px solid #000000 !important;
     padding: 8px 16px !important;
-}
-div.stButton > button:hover,
-div.stButton > button:focus {
-    background-color: #f0f0f0 !important;
-    color: #000000 !important;
-}
+    }
+/* Hover/focus state */ 
+div.stButton > button:hover, 
+div.stButton > button:focus { 
+    background-color: #f0f0f0 !important; /* 
+    Slight gray on hover */ 
+    color: #000000 !important; 
+    }
+            
+   
 </style>
 """, unsafe_allow_html=True)
 
