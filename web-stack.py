@@ -16,6 +16,17 @@ st.markdown("""
         color: #004080;  /* default text color for readability */
     }
 
+    /* Tab labels */
+    [data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
+        color: #003366 !important; /* Darker blue for tab labels */
+        font-weight: 600;          /* Make them bold */
+    }
+    
+    /* Tab content */
+    [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
+        color: #002244 !important; /* Even darker text for readability */
+    }
+
     /* Author section styling */
     .author {
         background-color: #cce0ff;  /* Author section background */
