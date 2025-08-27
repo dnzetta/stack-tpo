@@ -16,18 +16,6 @@ st.markdown("""
         color: #002244; /* Darker but softer text */
     }
 
-    /* Buttons - light blue background with dark text */
-    button[kind="primary"] {
-        background-color: #4da6ff !important;  /* Lighter blue */
-        color: #ffffff !important;             /* White text */
-        border-radius: 10px !important;        /* Rounded edges */
-        font-weight: bold;
-    }
-    button[kind="primary"]:hover {
-        background-color: #80c1ff !important;  /* Lighter on hover */
-        color: #ffffff !important;
-    }
-
     /* Author section styling */
     .author {
         background-color: #cce0ff;
@@ -87,22 +75,24 @@ div[data-baseweb="input"] input::placeholder {
 
 st.markdown("""
 <style>
-/* Primary buttons (e.g., Predict) */
+/* Primary buttons - default state */
 button[kind="primary"] {
-    background-color: #4da6ff !important;  /* Light blue background */
+    background-color: #4da6ff !important;  /* Light blue */
     color: #ffffff !important;             /* White text */
     font-weight: bold;
     border-radius: 8px !important;
     padding: 8px 16px !important;
 }
 
-/* Primary button hover effect */
-button[kind="primary"]:hover {
-    background-color: #80c1ff !important;  /* Lighter blue on hover */
+/* Primary buttons - hover/focus state */
+button[kind="primary"]:hover,
+button[kind="primary"]:focus {
+    background-color: #80c1ff !important;  /* Lighter blue */
     color: #ffffff !important;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # --- Load baseline models ---
