@@ -32,7 +32,7 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Tab label buttons - all states */
+/* Tab label buttons - force readable text and remove opacity/hover effect */
 [data-testid="stTabs"] div[role="tablist"] div[role="tab"] button,
 [data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:focus,
 [data-testid="stTabs"] div[role="tablist"] div[role="tab"] button:hover,
@@ -41,7 +41,9 @@ st.markdown("""
     background-color: #ffffff !important; /* White background */
     font-weight: 600;
     font-size: 14px;
-    opacity: 1 !important;               /* Prevent fading */
+    opacity: 1 !important;               /* Remove fade effect */
+    box-shadow: none !important;         /* Remove focus/hover shadow */
+    border: none !important;             /* Remove border if present */
 }
   
 /* Tab content text */
@@ -50,6 +52,7 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
