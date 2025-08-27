@@ -157,7 +157,7 @@ def predict_meta(stacked_probs):
     return final_prob
 
 # --- Streamlit Interface ---
-st.set_page_config(page_title="SMILES Probability Predictor", layout="centered")
+st.set_page_config(page_title="TPO Toxicity Screening", layout="centered")
 st.title("🧪 Thyroid Peroxidase Toxicity Screening")
 
 st.markdown("""
@@ -297,7 +297,7 @@ st.markdown("<br><br><br>", unsafe_allow_html=True)
 st.markdown("""
 <div class="author">
 Authors\n
-Darlene Nabila Zetta<sup>1</sup>, Tarapong Srisongkram<sup>2</sup>  
+Darlene Nabila Zetta<sup>1</sup> and Tarapong Srisongkram<sup>2*</sup>  
 
 <sup>1</sup>*Graduate School in the Program of Pharmaceutical Sciences, Faculty of Pharmaceutical Sciences, Khon Kaen University, Khon Kaen 40002, Thailand*  
 <sup>2</sup>*Division of Pharmaceutical Chemistry, Faculty of Pharmaceutical Sciences, Khon Kaen University, Khon Kaen 40002, Thailand*
