@@ -75,25 +75,23 @@ div[data-baseweb="input"] input::placeholder {
 
 st.markdown("""
 <style>
-/* Primary buttons - default state */
-button[kind="primary"] {
-    background-color: #4da6ff !important;  /* Light blue */
+/* All buttons inside Streamlit (including st.button) */
+div.stButton > button {
+    background-color: #4da6ff !important;  /* Light blue background */
     color: #ffffff !important;             /* White text */
-    font-weight: bold;
+    font-weight: bold !important;
     border-radius: 8px !important;
     padding: 8px 16px !important;
 }
 
-/* Primary buttons - hover/focus state */
-button[kind="primary"]:hover,
-button[kind="primary"]:focus {
-    background-color: #80c1ff !important;  /* Lighter blue */
+/* Hover/focus state */
+div.stButton > button:hover,
+div.stButton > button:focus {
+    background-color: #80c1ff !important;  /* Lighter blue on hover/focus */
     color: #ffffff !important;
 }
 </style>
 """, unsafe_allow_html=True)
-
-
 
 # --- Load baseline models ---
 cnn_model = load_model("baseline_model_cnn_ma.keras")
