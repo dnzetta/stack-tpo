@@ -32,23 +32,21 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Tab labels (all states) */
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
-    color: #000000 !important;   /* Black text for readability */
+/* Tab labels text (force black) */
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] {
+    color: #000000 !important;   /* Black text for all tabs */
     font-weight: 600;
     font-size: 14px;
 }
 
-/* Active tab */
+/* Optional: active tab background */
 [data-testid="stTabs"] div[role="tab"][aria-selected="true"] {
-    background-color: #ffffff !important; /* White background */
-    color: #000000 !important;            /* Force black text for active tab */
+    background-color: #ffffff !important;
 }
 
-/* Inactive tab */
+/* Optional: inactive tab background */
 [data-testid="stTabs"] div[role="tab"][aria-selected="false"] {
-    background-color: #ffffff !important; /* White background */
-    color: #000000 !important;            /* Force black text for inactive tabs */
+    background-color: #ffffff !important;
 }
 </style>
 """, unsafe_allow_html=True)
