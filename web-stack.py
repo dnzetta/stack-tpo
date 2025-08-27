@@ -16,17 +16,6 @@ st.markdown("""
         color: #002244; /* Darker but softer text */
     }
 
-    /* Tab labels - make text bold and softer blue */
-    [data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
-        color: #00509e !important; /* Softer blue */
-        font-weight: 600;
-    }
-
-    /* Tab content text - darker navy for readability */
-    [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
-        color: #001f33 !important;
-    }
-
     /* Buttons - light blue background with dark text */
     button[kind="primary"] {
         background-color: #4da6ff !important;  /* Lighter blue */
@@ -50,6 +39,22 @@ st.markdown("""
         border-radius: 10px;
         margin-top: 30px;
     }
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+/* Tab label text (active and inactive) */
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
+    color: #002244 !important;  /* Dark navy text */
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Tab content text */
+[data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
+    color: #002244 !important;  /* Force readable text inside */
+}
 </style>
 """, unsafe_allow_html=True)
 
