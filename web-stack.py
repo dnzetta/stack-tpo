@@ -32,29 +32,27 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Force tab label text color for all inner elements */
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] *,
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] span,
-[data-testid="stTabs"] div[role="tablist"] div[role="tab"] p {
-    color: #002244 !important;  /* Dark navy text */
+/* Tab label button text */
+[data-testid="stTabs"] div[role="tablist"] div[role="tab"] button {
+    color: #002244 !important;       /* Dark navy text */
     font-weight: 600;
     font-size: 14px;
+    background-color: #ffffff !important;  /* White background */
 }
 
-/* Tab label background - active & inactive */
-[data-testid="stTabs"] div[role="tab"][aria-selected="true"],
-[data-testid="stTabs"] div[role="tab"][aria-selected="false"] {
-    background-color: #ffffff !important; /* White background */
+/* Active and inactive tabs */
+[data-testid="stTabs"] div[role="tab"][aria-selected="true"] button,
+[data-testid="stTabs"] div[role="tab"][aria-selected="false"] button {
+    background-color: #ffffff !important;  /* Keep flat white background */
+    color: #002244 !important;             /* Ensure text stays readable */
 }
-  
+
 /* Tab content text */
 [data-testid="stTabs"] div[data-baseweb="tab-panel"] * {
-    color: #002244 !important;  /* Force readable text inside */
+    color: #002244 !important;  /* Keep content readable */
 }
 </style>
 """, unsafe_allow_html=True)
-
-
 
 st.markdown("""
 <style>
