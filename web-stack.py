@@ -243,10 +243,10 @@ with tab2:
                     bilstm_preds.append(None)
                     satt_preds.append(None)
 
-            df["Meta_Attention_Probability"] = final_preds
+            df["Attention_Probability"] = satt_preds
             df["CNN_Probability"] = cnn_preds
             df["BiLSTM_Probability"] = bilstm_preds
-            df["Attention_Probability"] = satt_preds
+            df["Meta_Attention_Probability"] = final_preds
 
 
             # Add Toxicity Label column
