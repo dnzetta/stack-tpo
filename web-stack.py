@@ -140,7 +140,7 @@ st.markdown("""
 Predict thyroid-disrupting chemicals targeting **thyroid peroxidase (TPO)** toxicity from SMILES using MACCS fingerprints and a **stacked ensemble neural network model**. \n
 **Baseline models:** Convolutional neural network (CNN), bidirectional long short-term memory (BiLSTM), and attention mechanism.\n
 **Meta model:** Attention-based stacked model.\n
-**Model Accuracy:** 87%
+**Model accuracy:** 87%
 """)
 
 # --- Tabs for SMILES vs CSV input ---
