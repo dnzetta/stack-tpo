@@ -137,7 +137,7 @@ st.title("🧪 Thyroid Peroxidase Toxicity Screening")
 
 st.markdown("""
 ### Prediction Server
-Predict **thyroid peroxidase (TPO) toxicity** from SMILES using **MACCS fingerprints** and **stacked ensemble models**.\n
+Predict thyroid-disrupting chemicals targeting **thyroid peroxidase (TPO)** toxicity from SMILES using MACCS fingerprints and a **stacked ensemble neural network model**. \n
 **Baseline models:** Convolutional neural network (CNN), bidirectional long short-term memory (BiLSTM), and attention mechanism.\n
 **Meta model:** Attention-based stacked model.\n
 **Model Accuracy:** 87%
