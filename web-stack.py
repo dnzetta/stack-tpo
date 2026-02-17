@@ -222,17 +222,32 @@ with tab2:
         if "SMILES" not in df.columns:
             st.error("The CSV must contain a 'SMILES' column.")
         else:
-            predictions = []
+            final_preds = []
+            cnn_preds = []
+            bilstm_preds = []
+            satt_preds = []
+
             for smiles in df["SMILES"]:
                 fp_array = smiles_to_maccs(smiles)
                 if fp_array is not None:
-                    stacked_probs, _, _, _ = predict_baselines(fp_array)
+                    stacked_probs, cnn_prob, bilstm_prob, satt_prob = predict_baselines(fp_array)
                     final_prob = predict_meta(stacked_probs)
-                    predictions.append(final_prob[0][0])
-                else:
-                    predictions.append(None)
 
-            df["Predicted_Probability"] = predictions
+                    final_preds.append(final_prob[0][0])
+                    cnn_preds.append(cnn_prob[0][0])
+                    bilstm_preds.append(bilstm_prob[0][0])
+                    satt_preds.append(satt_prob[0][0])
+                else:
+                    final_preds.append(None)
+                    cnn_preds.append(None)
+                    bilstm_preds.append(None)
+                    satt_preds.append(None)
+
+            df["Meta_Attention_Probability"] = final_preds
+            df["CNN_Probability"] = cnn_preds
+            df["BiLSTM_Probability"] = bilstm_preds
+            df["Attention_Probability"] = satt_preds
+
 
             # Add Toxicity Label column
             def toxicity_label(prob):
@@ -245,7 +260,7 @@ with tab2:
                 else:
                     return "Toxic"
 
-            df["Toxicity_Label"] = df["Predicted_Probability"].apply(toxicity_label)
+            df["Toxicity_Label"] = df["Meta_Attention_Probability"].apply(toxicity_label)
 
             st.dataframe(df)
 
@@ -257,10 +272,8 @@ with tab2:
                 mime="text/csv",
             )
 
-            # Heatmap legend
-            st.write("**Prediction Heatmap:**")
             st.markdown(
-                "**Heatmap Interpretation:**  \n"
+                "**Prediction Interpretation:**  \n"
                 "\\< 0.5 → Non-toxic  \n"
                 "= 0.5 → Uncertain  \n"
                 "\\> 0.5 → Toxic"
