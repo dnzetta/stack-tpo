@@ -137,14 +137,14 @@ st.title("🧪 Thyroid Peroxidase Toxicity Screening")
 
 st.markdown("""
 ### Prediction Server
-Predict **thyroid peroxidase (TPO) toxicity** from SMILES using **MACCS fingerprints** and **stacked models**.\n
-**Baselines included:** CNN, BiLSTM, and attention models.\n
+Predict **thyroid peroxidase (TPO) toxicity** from SMILES using **MACCS fingerprints** and **stacked ensemble models**.\n
+**Baseline models:** Convolutional neural network (CNN), bidirectional long short-term memory (BiLSTM), and attention mechanism.\n
 **Meta model:** Attention-based stacked model.\n
 **Model Accuracy:** 87%
 """)
 
 # --- Tabs for SMILES vs CSV input ---
-tab1, tab2 = st.tabs(["Single SMILES", "CSV Batch Prediction"])
+tab1, tab2 = st.tabs(["Single SMILES", "CSV Batch"])
 
 # --- Single SMILES Input ---
 with tab1:
